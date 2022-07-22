@@ -1,4 +1,6 @@
 
+lis = list()
+
 def inputData():
     rank = dict()
     while True:
@@ -12,10 +14,15 @@ def inputData():
         
         rank[key] = value
         
+    test = sorted([(v,k) for k,v in rank.items()],reverse=True)
     
-    return rank
+    for v,k in test:
+        f = open('./views/NewFile.docx', 'a')
+        f.write(f'\n{k} - {v}')
+        f.close()
+        
 
-print(inputData())
+inputData()
         
-        
+     
         
