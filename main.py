@@ -1,5 +1,4 @@
 
-lis = list()
 
 def inputData():
     rank = dict()
