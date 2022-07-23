@@ -31,12 +31,11 @@ def inputData():
 def readFile():
     
     count = dict()
-    file = input("Enter the file name : ")
+    file = input("Enter the file name(just press 'Enter' to use default file) : ")
+    if len(file) < 1:
+        file = "Testfile.txt"
     
     fhand = open(f"./views/{file}")
-        
-       # if fhand < 1 :
-          #  fhand = "TestFile.txt"
     
     for lines in fhand:
         kline = re.findall('(\S+\s.+)\s[-:]\s[0-9]+',lines) #find and extract only the names within the file(comes in list form) 
@@ -51,8 +50,8 @@ def readFile():
     test2 = sorted([(v,k) for k,v in count.items()], reverse=True)
     
     save_file = input("Enter new file name to save : ")
-    #if save_file < 1:
-            #save_file = "TestFile2.txt" 
+    if len(save_file) < 1:
+            save_file = "TestFile2" 
     
     for v,k in test2:
         fh = open(f"./views/{save_file}.docx", "a")  
